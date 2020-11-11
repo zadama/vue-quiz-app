@@ -26,17 +26,48 @@
       </tbody>
     </table>
 
-    <router-link to="/">
-      <button class="btn">Back to menu</button>
-    </router-link>
+    <modal
+      :points="progressData.counter"
+      :isOpen="isOpen"
+      @update:toggleModal="toggleModal"
+    />
+
+    <div class="btn-container">
+      <button
+        style="background-color:#4aa52e;"
+        @click="toggleModal"
+        class="btn"
+      >
+        Save Results
+      </button>
+
+      <router-link to="/">
+        <button class="btn">Back to menu</button>
+      </router-link>
+    </div>
   </div>
 </template>
 
 <script>
+import Modal from "./Modal";
+
 export default {
   name: "ResultPage",
+  components: {
+    Modal
+  },
   props: {
     progressData: Object
+  },
+  data() {
+    return {
+      isOpen: false
+    };
+  },
+  methods: {
+    toggleModal() {
+      this.isOpen = !this.isOpen;
+    }
   }
 };
 </script>
@@ -91,8 +122,12 @@ a {
   border-width: 4px;
   font-size: 1.6rem;
   cursor: pointer;
-  margin-left: auto;
   margin-top: 10px;
   outline: none;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
 }
 </style>

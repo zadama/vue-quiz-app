@@ -51,23 +51,24 @@ export default {
   },
   computed: {
     isQuizOver: function() {
-      return true;
+      //return true;
       // ÄNDRA TILLBAKA TILL NEDAN
-      //return this.questionIndex + 1 >= this.quizArr.length;
+      return this.questionIndex + 1 >= this.quizArr.length;
     }
   },
   mounted() {
     this.getQuestions();
   },
 
+  /*
   watch: {
-    questionIndex: function(val) {
+    questionIndex: function() {
       if (this.isQuizOver) {
-        // Lägg till this.progressbar i localstorage
-        console.log("IT IS ALL OVER...", val);
+        
+        localStorage.setItem("progressbar", this.progressData.counter);
       }
     }
-  },
+  },*/
 
   methods: {
     async getQuestions() {
