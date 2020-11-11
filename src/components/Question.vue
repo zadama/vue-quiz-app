@@ -157,7 +157,9 @@ export default {
 }
 
 .selected-answer {
-  background-color: #0028ef57 !important;
+  background-color: #0028ef57;
+  border-color: #19ea19;
+  outline: none;
 }
 .unclickable-buttons {
   pointer-events: none;
