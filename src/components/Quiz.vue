@@ -55,6 +55,15 @@ export default {
     this.getQuestions();
   },
 
+  watch: {
+    questionIndex: function(val) {
+      if (this.isQuizOver) {
+        // Lägg till this.progressbar i localstorage
+        console.log("IT IS ALL OVER...", val);
+      }
+    }
+  },
+
   methods: {
     async getQuestions() {
       try {
