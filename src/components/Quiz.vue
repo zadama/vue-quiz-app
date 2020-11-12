@@ -5,15 +5,20 @@
 
       <div v-if="loading">Loading...</div>
 
-      <div v-else-if="isQuizOver && !loading">
+      <result-page
+        :progressData="progressData"
+        v-else-if="isQuizOver && !loading"
+      >
         detta ska va egen komponent ha end screen med konfetti och table över
         resultat
-      </div>
+      </result-page>
 
       <div
         class="question-answer-container"
         v-else-if="!loading && !isQuizOver"
       >
+        <h4 class="counter">Counter: {{ progressData.counter }}</h4>
+
         <question
           @update:nextQuestion="nextQuestion"
           @update:progressData="updateUserQuizResult"
@@ -27,11 +32,13 @@
 
 <script>
 import Question from "./Question";
+import ResultPage from "./ResultPage";
 
 export default {
   name: "Quiz",
   components: {
-    Question
+    Question,
+    ResultPage
   },
   data() {
     return {
@@ -45,15 +52,25 @@ export default {
     };
   },
   computed: {
-    // a computed getter
     isQuizOver: function() {
-      // `this` points to the vm instance
+      //return true;
+      // ÄNDRA TILLBAKA TILL NEDAN
       return this.questionIndex + 1 >= this.quizArr.length;
     }
   },
   mounted() {
     this.getQuestions();
   },
+
+  /*
+  watch: {
+    questionIndex: function() {
+      if (this.isQuizOver) {
+        
+        localStorage.setItem("progressbar", this.progressData.counter);
+      }
+    }
+  },*/
 
   methods: {
     async getQuestions() {

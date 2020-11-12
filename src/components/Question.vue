@@ -101,7 +101,19 @@ export default {
       this.$emit("update:nextQuestion");
     },
     higlightSelectedAnswer: function(selectedAnswer) {
+      let setRedButton = false;
+      let setBlueButton = false;
+
+      if (selectedAnswer === "True") {
+        setBlueButton = true;
+      }
+      if (selectedAnswer === "False") {
+        setRedButton = true;
+      }
+
       return {
+        "red-button-color": setRedButton,
+        "blue-button-color": setBlueButton,
         "selected-answer ":
           this.selectedAnswer === this.decodeHTML(selectedAnswer),
         "unclickable-buttons": this.hasAnswered
@@ -151,6 +163,8 @@ export default {
 .selected-answer {
   color: #dededa;
   background-color: #0028ef57;
+  border-color: #19ea19;
+  outline: none;
 }
 
 .answer:hover {
@@ -199,5 +213,15 @@ export default {
   background-color: #cccccc;
   color: #666666;
   cursor: no-drop;
+}
+
+.red-button-color {
+  color: #fff;
+  background-color: #e76e55;
+}
+
+.blue-button-color {
+  color: #fff;
+  background-color: #209cee;
 }
 </style>
