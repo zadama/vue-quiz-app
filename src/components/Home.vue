@@ -1,18 +1,18 @@
 <template>
   <div class="container" id="app">
-    <div class="outside-div"> 
-      <div class="middle-div"> 
-        <div class="inside-div"> 
+    <div class="outside-div">
+      <div class="middle-div">
+        <div class="inside-div">
           <h1>
-            <span id="ultimate">Ultimate</span><br>
+            <span id="ultimate">Ultimate</span><br />
             <span id="trivia-master">Trivia Master</span>
           </h1>
         </div>
       </div>
     </div>
     <div style="height:100%; align-items:center;" class="row">
-      <router-link to="/quiz">
-        <button class="btn-start-game">Start!</button>
+      <router-link to="/categories">
+        <button class="btn-start-game">Play!</button>
       </router-link>
       <router-link to="/highscore">
         <button class="btn-high-score">High score</button>
@@ -42,7 +42,9 @@ export default {
   box-shadow: 2px #1fc700;
 }
 
-.btn-start-game:hover {background-color: #39ff14}
+.btn-start-game:hover {
+  background-color: #39ff14;
+}
 
 .btn-start-game:active {
   background-color: #23e000;
@@ -69,14 +71,14 @@ a {
 }
 
 div .container {
-  background-color : #15242d;
+  background-color: #15242d;
   border-style: solid;
 }
 
-h1{
-  text-align:center;
+h1 {
+  text-align: center;
   font-size: 48px;
-  color:#000000;
+  color: #000000;
   font-family: Fantasy;
 }
 
@@ -85,14 +87,14 @@ h1{
   text-shadow: 3px 3px #0b332e, 4px 4px #39ff14;
 }
 
-#trivia-master{
+#trivia-master {
   color: #dededa;
   text-shadow: 3px 3px #0b332e, 4px 4px #39ff14;
 }
 
 .outside-div {
   border-style: solid;
-  border-color: #FFFFFF;
+  border-color: #ffffff;
   width: 100%;
   max-width: 480px;
   margin-left: auto;
@@ -104,10 +106,9 @@ h1{
   border-color: #39ff14;
 }
 
-.inside-div{
+.inside-div {
   background-color: #15242d;
   border-color: #d2af58;
   border-style: solid;
 }
-
 </style>

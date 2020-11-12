@@ -41,8 +41,8 @@
         Save Results
       </button>
 
-      <router-link to="/">
-        <button class="btn">Back to menu</button>
+      <router-link to="/categories">
+        <button class="btn">New Game(Score will not be saved)</button>
       </router-link>
     </div>
   </div>

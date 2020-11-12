@@ -1,7 +1,7 @@
 <template>
   <div class="question-container">
     <!--     <h1 v-html="currentQuestion.question">}</h1>-->
-    <h1>{{ decodeHTML(currentQuestion.question) }}</h1>
+    <h1>{{ vueDecodeHTML(currentQuestion.question) }}</h1>
 
     <div class="answer-list">
       <button
@@ -11,11 +11,9 @@
         class="answer"
         :class="higlightSelectedAnswer(answer)"
       >
-        {{ decodeHTML(answer) }}
+        {{ vueDecodeHTML(answer) }}
       </button>
     </div>
-
-    <p>{{ currentQuestion.correct_answer }}</p>
 
     <div class="next-question-container">
       <button
@@ -40,7 +38,7 @@
 </template>
 
 <script>
-import { shuffle } from "../util/quizUtil";
+import { shuffle, decodeHTML } from "../util/quizUtil";
 
 export default {
   name: "question",
@@ -69,14 +67,14 @@ export default {
   },
   methods: {
     answerSelected(selectedAnswer) {
-      this.selectedAnswer = this.decodeHTML(selectedAnswer);
+      this.selectedAnswer = this.vueDecodeHTML(selectedAnswer);
     },
     // To escape special HTML symbols such as &quot;
-    decodeHTML: function(html) {
-      var txt = document.createElement("textarea");
-      txt.innerHTML = html;
-      return txt.value;
+    // Not possible to use decodeHTML directly in vue template, hence an extra wrapper method.
+    vueDecodeHTML(str) {
+      return decodeHTML(str);
     },
+
     updateAnswers() {
       const unshuffledAnswers = [
         ...this.currentQuestion.incorrect_answers,
@@ -119,7 +117,7 @@ export default {
         "red-button-color": setRedButton,
         "blue-button-color": setBlueButton,
         "selected-answer ":
-          this.selectedAnswer === this.decodeHTML(selectedAnswer),
+          this.selectedAnswer === this.vueDecodeHTML(selectedAnswer),
         "unclickable-buttons": this.hasAnswered
       };
     }

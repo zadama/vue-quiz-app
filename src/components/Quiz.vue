@@ -7,8 +7,6 @@
         :progressData="progressData"
         v-else-if="isQuizOver && !loading"
       >
-        detta ska va egen komponent ha end screen med konfetti och table över
-        resultat
       </result-page>
 
       <div
@@ -35,6 +33,7 @@
 <script>
 import Question from "./Question";
 import ResultPage from "./ResultPage";
+import { decodeHTML } from "../util/quizUtil";
 
 export default {
   name: "Quiz",
@@ -62,7 +61,7 @@ export default {
     }
   },
   mounted() {
-    this.getQuestions();
+    this.getQuestions(this.$route.params.categoryId);
   },
 
   /*
@@ -76,10 +75,14 @@ export default {
   },*/
 
   methods: {
-    async getQuestions() {
+    async getQuestions(categoryId) {
+      if (categoryId === undefined || categoryId === null) {
+        categoryId = 11;
+      }
+
       try {
         const response = await fetch(
-          "https://opentdb.com/api.php?amount=10&category=11&difficulty=easy"
+          `https://opentdb.com/api.php?amount=10&category=${categoryId}&difficulty=easy`
         );
         const data = await response.json();
         console.log(data);
@@ -94,8 +97,14 @@ export default {
       this.questionIndex++;
     },
     updateUserQuizResult(userAnswer) {
+      console.log(
+        userAnswer,
+        this.quizArr[this.questionIndex].correct_answer,
+        decodeHTML(this.quizArr[this.questionIndex].correct_answer)
+      );
       let isAnswerCorrect =
-        userAnswer === this.quizArr[this.questionIndex].correct_answer;
+        userAnswer ===
+        decodeHTML(this.quizArr[this.questionIndex].correct_answer);
 
       if (isAnswerCorrect) {
         this.progressData.counter = this.progressData.counter + 10;

@@ -1,8 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "./components/Home.vue";
-import Profile from "./components/Quiz.vue";
+import Quiz from "./components/Quiz.vue";
 import Highscore from "./components/Highscore.vue";
+import Categories from "./components/Categories.vue";
 
 Vue.use(VueRouter);
 
@@ -15,12 +16,18 @@ const routes = [
   {
     path: "/quiz",
     name: "quiz",
-    component: Profile
-  }, 
+    component: Quiz,
+    props: true
+  },
   {
     path: "/highscore",
     name: "highscore",
     component: Highscore
+  },
+  {
+    path: "/categories",
+    name: "categories",
+    component: Categories
   }
 ];
 

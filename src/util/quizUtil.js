@@ -6,3 +6,9 @@ export const shuffle = array => {
 
   return array;
 };
+
+export const decodeHTML = str => {
+  var txt = document.createElement("textarea");
+  txt.innerHTML = str;
+  return txt.value;
+};
