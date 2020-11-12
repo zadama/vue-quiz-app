@@ -1,7 +1,7 @@
 <template>
   <div class="container" id="app">
     <div class="row">
-      <h4 class="counter">Counter: {{ progressData.counter }}</h4>
+      <h4 class="counter">Score: {{ progressData.counter }}</h4>
 
       <div v-if="loading">Loading...</div>
 
@@ -97,6 +97,11 @@ export default {
 </script>
 
 <style scoped>
+
+div {
+  background-color: #15242d;
+}
+
 .row {
   align-items: center;
   width: 100%;
@@ -112,5 +117,7 @@ export default {
 .counter {
   margin-right: auto;
   margin-bottom: 20px;
+  color: #dedede;
+  font-size: 20px;
 }
 </style>

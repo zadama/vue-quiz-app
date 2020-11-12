@@ -14,6 +14,9 @@
       <router-link to="/quiz">
         <button class="btn-start-game">Start!</button>
       </router-link>
+      <router-link to="/highscore">
+        <button class="btn-high-score">High score</button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -44,6 +47,20 @@ export default {
 .btn-start-game:active {
   background-color: #23e000;
   transform: translateY(4px);
+}
+
+.btn-high-score {
+  margin-bottom: 1em;
+  width: 100%;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  background-color: #1fc700;
+  padding: 6px 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 2px #1fc700;
 }
 
 a {

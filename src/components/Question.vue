@@ -124,13 +124,17 @@ export default {
   background-color: #f7d51d;
   padding: 6px 8px;
   border-style: solid;
-  border-width: 4px;
+  border-width: 2px;
+  border-color: #e5c829;
   font-size: 1.6rem;
   cursor: pointer;
+  box-shadow: 1px 1px #9f8707;
 }
 
 .question-container {
   flex: 2;
+  color: #dededa;
+  text-shadow: 3px 3px #0b332e;
 }
 
 .next-question-container {
@@ -145,8 +149,22 @@ export default {
 }
 
 .selected-answer {
+  color: #dededa;
   background-color: #0028ef57;
 }
+
+.answer:hover {
+  background-color: #d2b30b;
+  border-style: solid;
+  border-color: #0028ef57;
+  box-shadow: 1px 1px #0028ef57;
+}
+
+.answer:active {
+  background-color: #dbbf27;
+  transform: translateY(4px);
+}
+
 .unclickable-buttons {
   pointer-events: none;
 }
@@ -155,16 +173,31 @@ export default {
   background: #0066a2;
   padding: 6px 8px;
   border-style: solid;
-  border-width: 4px;
+  border-color:#0066a2;
+  border-width: 2px;
   font-size: 1.6rem;
   cursor: pointer;
   letter-spacing: 3px;
 }
+
+.next:hover {
+  background-color: #0028ef57;
+  border-style: solid;
+  border-color: #0028ef57;
+  box-shadow: 1px 1px #0028ef57;
+}
+
+.next:active {
+  background-color: #0066a2;
+  transform: translateY(2px);
+}
+
 
 .next:disabled,
 .next[disabled] {
   border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
+  cursor: no-drop;
 }
 </style>
