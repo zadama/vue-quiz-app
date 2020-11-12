@@ -162,8 +162,8 @@ export default {
 
 .selected-answer {
   color: #dededa;
-  background-color: #0028ef57;
-  border-color: #19ea19;
+  background-color: #0028ef57 !important;
+  border-color: #19ea19 !important;
   outline: none;
 }
 
@@ -187,7 +187,7 @@ export default {
   background: #0066a2;
   padding: 6px 8px;
   border-style: solid;
-  border-color:#0066a2;
+  border-color: #0066a2;
   border-width: 2px;
   font-size: 1.6rem;
   cursor: pointer;
@@ -205,7 +205,6 @@ export default {
   background-color: #0066a2;
   transform: translateY(2px);
 }
-
 
 .next:disabled,
 .next[disabled] {

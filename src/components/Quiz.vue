@@ -1,8 +1,6 @@
 <template>
   <div class="container" id="app">
     <div class="row">
-      <h4 class="counter">Score: {{ progressData.counter }}</h4>
-
       <div v-if="loading">Loading...</div>
 
       <result-page
@@ -17,7 +15,11 @@
         class="question-answer-container"
         v-else-if="!loading && !isQuizOver"
       >
-        <h4 class="counter">Counter: {{ progressData.counter }}</h4>
+        <h4 class="counter">Score: {{ progressData.counter }}</h4>
+
+        <h4 class="counter">
+          Question {{ questionIndex + 1 }} of {{ quizArr.length }}
+        </h4>
 
         <question
           @update:nextQuestion="nextQuestion"
@@ -55,7 +57,8 @@ export default {
     isQuizOver: function() {
       //return true;
       // ÄNDRA TILLBAKA TILL NEDAN
-      return this.questionIndex + 1 >= this.quizArr.length;
+
+      return this.questionIndex > this.quizArr.length - 1;
     }
   },
   mounted() {
@@ -88,10 +91,7 @@ export default {
     },
 
     nextQuestion() {
-      this.questionIndex =
-        this.questionIndex + 1 < this.quizArr.length
-          ? this.questionIndex + 1
-          : this.questionIndex;
+      this.questionIndex++;
     },
     updateUserQuizResult(userAnswer) {
       let isAnswerCorrect =
@@ -114,7 +114,6 @@ export default {
 </script>
 
 <style scoped>
-
 div {
   background-color: #15242d;
 }
