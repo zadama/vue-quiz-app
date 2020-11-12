@@ -82,7 +82,6 @@ export default {
 <style scoped>
 .modal {
   width: 500px;
-  margin: 0px auto;
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 8px 3px;
@@ -90,6 +89,22 @@ export default {
   display: flex;
   flex-flow: row wrap;
 }
+
+@media (min-width: 320px) {
+  .modal {
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .modal {
+    width: 500px;
+    margin: 0px auto;
+  }
+}
+
 .fadeIn-enter {
   opacity: 0;
 }

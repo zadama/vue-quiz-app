@@ -74,12 +74,47 @@ export default {
 
 <style>
 .quiz-container {
-  border: none;
-  padding: 2rem 4rem;
+  border: none !important;
+}
+
+@media (min-width: 320px) {
+  .rounded-div {
+    overflow-x: scroll;
+    padding-top: 10px;
+    padding-left: 5px;
+  }
+
+  .btn-container {
+    flex-flow: row wrap;
+  }
+  .btn-container > * {
+    flex-grow: 1;
+  }
+
+  .quiz-container {
+    padding: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .rounded-div {
+    padding: 1rem;
+    overflow: visible;
+  }
+
+  .quiz-container {
+    padding: 2rem 4rem;
+  }
+
+  .btn-container {
+    flex-flow: row nowrap;
+  }
+  .btn-container > * {
+    flex-grow: unset;
+  }
 }
 
 .rounded-div {
-  padding: 1rem;
   border-left-width: 1px;
   border-right-width: 1px;
   border-top-width: 1px;

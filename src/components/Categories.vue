@@ -74,7 +74,7 @@ ul {
 }
 
 .category {
-  flex: 0 0 auto;
+  flex: 0 1 auto;
   margin: 0.75em;
   color: #212529;
   background-color: #f7d51d;

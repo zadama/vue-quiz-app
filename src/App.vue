@@ -56,12 +56,6 @@ button {
   font-family: "VT323", monospace;
 }
 
-html,
-body,
-.container {
-  min-height: 100%;
-}
-
 .container {
   margin: 0 auto;
   max-width: 960px;
@@ -72,6 +66,29 @@ body,
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 320px) {
+  html,
+  body,
+  .container {
+    height: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+  html,
+  body,
+  .container {
+    min-height: 100%;
+    height: unset;
+  }
+}
+
+@media (min-width: 1200px) {
 }
 
 .row {

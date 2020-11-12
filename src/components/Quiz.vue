@@ -52,6 +52,8 @@ export default {
       }
     };
   },
+  //Resetting the values. Necessary when we change route back to Quiz again(programmatically or through router-link)
+  // Without refreshing the page manually.s
   beforeMount: function() {
     this.loading = true;
     this.questionIndex = 0;
@@ -138,10 +140,21 @@ export default {
 </script>
 
 <style>
+@media (min-width: 320px) {
+  .quiz-container {
+    padding: 2rem 2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .quiz-container {
+    padding: 2rem 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
 .quiz-container {
   border-style: solid;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
 }
 
 body {

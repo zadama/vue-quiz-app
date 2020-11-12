@@ -126,12 +126,6 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  border-style: solid;
-  padding-top: 2rem;
-  padding-top: 2rem;
-}
-
 .answer-list {
   display: flex;
   flex-flow: row wrap;
@@ -155,6 +149,25 @@ export default {
   flex: 2;
   color: #dededa;
   text-shadow: 3px 3px #0b332e;
+}
+
+@media (min-width: 320px) {
+  .next-question-container {
+    margin-top: 20px;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .next-question-container {
+    margin-top: unset;
+  }
+  h1 {
+    margin-bottom: unset;
+  }
 }
 
 .next-question-container {

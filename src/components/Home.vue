@@ -14,7 +14,10 @@
         </div>
       </div>
     </div>
-    <div style=" margin-top:20px; height:100%; align-items:center;" class="row">
+    <div
+      style=" margin-top:40px; align-items:center;"
+      class="row game-starter-container"
+    >
       <router-link to="/categories">
         <button class="btn-start-game">Play!</button>
       </router-link>
@@ -95,6 +98,35 @@ h1 {
 #trivia-master {
   color: #dededa;
   text-shadow: 3px 3px #0b332e, 4px 4px #39ff14;
+}
+
+@media (min-width: 320px) {
+  .outside-div {
+    margin-top: 150px;
+  }
+
+  .game-starter-container {
+    height: auto;
+  }
+
+  .game-starter-container > * {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .outside-div {
+    margin-top: unset;
+  }
+
+  .game-starter-container {
+    height: 100%;
+  }
+  .game-starter-container > * {
+    flex-basis: 100%;
+  }
 }
 
 .outside-div {
