@@ -111,8 +111,10 @@ export default {
       }
 
       this.progressData.userQuizResult.push({
-        question: this.quizArr[this.questionIndex].question,
-        correct_answer: this.quizArr[this.questionIndex].correct_answer,
+        question: decodeHTML(this.quizArr[this.questionIndex].question),
+        correct_answer: decodeHTML(
+          this.quizArr[this.questionIndex].correct_answer
+        ),
         user_answer: userAnswer
       });
 
