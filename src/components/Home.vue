@@ -1,5 +1,9 @@
 <template>
-  <div class="container" id="app">
+  <div
+    style="padding-bottom:3rem; padding-top:3rem;"
+    class="container"
+    id="app"
+  >
     <div class="outside-div">
       <div class="middle-div">
         <div class="inside-div">
@@ -10,7 +14,7 @@
         </div>
       </div>
     </div>
-    <div style="height:100%; align-items:center;" class="row">
+    <div style=" margin-top:20px; height:100%; align-items:center;" class="row">
       <router-link to="/categories">
         <button class="btn-start-game">Play!</button>
       </router-link>
@@ -67,6 +71,7 @@ export default {
 
 a {
   flex-grow: 1;
+  flex-basis: 100%;
   display: flex;
 }
 

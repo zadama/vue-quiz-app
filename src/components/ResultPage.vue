@@ -72,7 +72,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+.quiz-container {
+  border: none;
+  padding: 2rem 4rem;
+}
+
 .rounded-div {
   padding: 1rem;
   border-left-width: 1px;
@@ -103,11 +108,6 @@ th {
 
   border-color: rgba(203, 213, 224, 1);
   border-style: solid;
-}
-
-.container {
-  padding: 0;
-  padding-top: 20px;
 }
 
 a {

@@ -12,6 +12,17 @@
             </div>
           </div>
         </div>
+        <div v-if="showSuccessMessage" id="success-message-overlay">
+          <div class="success-modal">
+            <img src="../assets/check.png" />
+            <h2>
+              Your score was saved!
+            </h2>
+            <h5>
+              Redirecting to home...
+            </h5>
+          </div>
+        </div>
       </div>
     </transition>
   </div>
@@ -26,7 +37,8 @@ export default {
   },
   data: () => {
     return {
-      name: ""
+      name: "",
+      showSuccessMessage: false
     };
   },
   methods: {
@@ -34,6 +46,11 @@ export default {
       this.$emit("update:toggleModal");
     },
     saveName: function() {
+      if (this.name.length <= 0) {
+        alert("Please enter a name");
+        return;
+      }
+
       const usersStored = localStorage.getItem("users");
       let userArray = [];
 
@@ -51,7 +68,12 @@ export default {
       }
 
       localStorage.setItem("users", JSON.stringify(userArray));
-      this.$router.push("/");
+
+      this.showSuccessMessage = true;
+
+      setTimeout(() => {
+        this.$router.push("/");
+      }, 1500);
     }
   }
 };
@@ -139,5 +161,81 @@ p {
   color: red;
   font-size: 1.4rem;
   font-weight: bold;
+}
+
+#success-message-overlay {
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border-radius: 2px;
+
+  display: flex;
+  position: fixed;
+  z-index: 1060;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+
+.success-modal {
+  width: 540px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: transform 0.3s, opacity 0.2s, -webkit-transform 0.3s;
+  transform: scale(1);
+  -webkit-animation: showSweetAlert 0.3s;
+  animation: showSweetAlert 0.3s;
+  will-change: transform;
+  opacity: 1;
+  display: inline-block;
+  top: 0;
+}
+
+@keyframes showSweetAlert {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  1% {
+    transform: scale(0.5);
+    opacity: 0.4;
+  }
+  45% {
+    transform: scale(1.05);
+    opacity: 0.6;
+  }
+  80% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+img {
+  max-width: 90px;
+  margin-bottom: 20px;
+  top: 0;
+  margin-top: 10px;
+}
+
+h2,
+h5 {
+  color: black;
+}
+
+h5 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  top: 0;
+  bottom: 0;
 }
 </style>

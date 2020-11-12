@@ -126,6 +126,12 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  border-style: solid;
+  padding-top: 2rem;
+  padding-top: 2rem;
+}
+
 .answer-list {
   display: flex;
   flex-flow: row wrap;

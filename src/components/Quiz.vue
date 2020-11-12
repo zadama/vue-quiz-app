@@ -1,5 +1,5 @@
 <template>
-  <div class="container" id="app">
+  <div class="container quiz-container">
     <div class="row">
       <div v-if="loading">Loading...</div>
 
@@ -52,11 +52,17 @@ export default {
       }
     };
   },
+  beforeMount: function() {
+    this.loading = true;
+    this.questionIndex = 0;
+    this.quizArr = [];
+    this.progressData = {
+      counter: 0,
+      userQuizResult: []
+    };
+  },
   computed: {
     isQuizOver: function() {
-      //return true;
-      // ÄNDRA TILLBAKA TILL NEDAN
-
       return this.questionIndex > this.quizArr.length - 1;
     }
   },
@@ -85,7 +91,14 @@ export default {
           `https://opentdb.com/api.php?amount=10&category=${categoryId}&difficulty=easy`
         );
         const data = await response.json();
-        console.log(data);
+
+        if (data.results.length <= 0) {
+          alert(
+            "No questions were found for the given category, please choose another one."
+          );
+          this.$router.push("/categories");
+        }
+
         this.quizArr = data.results;
         this.loading = false;
       } catch (error) {
@@ -124,9 +137,15 @@ export default {
 };
 </script>
 
-<style scoped>
-div {
-  background-color: #15242d;
+<style>
+.quiz-container {
+  border-style: solid;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+body {
+  background-color: #15242d !important;
 }
 
 .row {
