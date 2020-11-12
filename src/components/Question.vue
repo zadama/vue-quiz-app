@@ -40,6 +40,8 @@
 </template>
 
 <script>
+import { shuffle } from "../util/quizUtil";
+
 export default {
   name: "question",
   data() {
@@ -76,10 +78,12 @@ export default {
       return txt.value;
     },
     updateAnswers() {
-      this.answers = [
+      const unshuffledAnswers = [
         ...this.currentQuestion.incorrect_answers,
         this.currentQuestion.correct_answer
       ];
+
+      this.answers = [...shuffle(unshuffledAnswers)];
     },
     answerQuestion() {
       // check answer and do sumething with it
