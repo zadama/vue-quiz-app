@@ -125,6 +125,7 @@ export default {
   border-style: solid;
   display: flex;
   flex-flow: column nowrap;
+  color: white;
 }
 
 table {
