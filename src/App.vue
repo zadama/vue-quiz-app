@@ -5,34 +5,8 @@
 </template>
 
 <script>
-//import FormEx from "./components/FormEx.vue";
-
 export default {
-  name: "App",
-  components: {},
-  data() {
-    return {
-      employeeArr: [],
-      loading: true
-    };
-  },
-  mounted() {
-    this.getEmployees();
-  },
-  methods: {
-    async getEmployees() {
-      try {
-        const response = await fetch(
-          "https://opentdb.com/api.php?amount=10&category=11&difficulty=easy"
-        );
-        const data = await response.json();
-        this.employeeArr = data.results;
-        this.loading = false;
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  }
+  name: "App"
 };
 </script>
 
