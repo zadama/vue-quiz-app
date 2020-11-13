@@ -2,7 +2,7 @@
 
 # About
 
-This is a web application built with JavaScript using the VueJS Framework. It's a trivia game website using the trivia game open database API. If interested you can find the API here https://opentdb.com/api_config.php. </br> You can use the application on https://vue-triva-quiz.herokuapp.com/.
+This is a web application built with JavaScript using the VueJS Framework. It's a trivia game website using the trivia game open database API. </br> If interested you can find the API here https://opentdb.com/api_config.php. </br> You can use the application on https://vue-triva-quiz.herokuapp.com/.
 
 ## Project setup
 
