@@ -54,15 +54,16 @@ export default {
     isQuizOver: Boolean
   },
   watch: {
+    /**
+     * Everytime the parent props changes, we update the answers/options.
+     */
     currentQuestion: function(newVal, oldVal) {
-      console.log(newVal, oldVal);
       if (oldVal !== newVal) {
         this.updateAnswers();
       }
     }
   },
   mounted() {
-    console.log(this.hasAnswered, this.isQuizOver);
     this.updateAnswers();
   },
   methods: {
@@ -75,6 +76,10 @@ export default {
       return decodeHTML(str);
     },
 
+    /**
+     * Before updating the answers we shuffle the list
+     * to avoid the correct answer always being at the last index i.e. 4 (or 2 in case of true/false)
+     */
     updateAnswers() {
       const unshuffledAnswers = [
         ...this.currentQuestion.incorrect_answers,
@@ -84,11 +89,6 @@ export default {
       this.answers = [...shuffle(unshuffledAnswers)];
     },
     answerQuestion() {
-      // check answer and do sumething with it
-      // om korrekt svar, kalla parent en metod och öka dens counter med
-      // skicka även upp frågan, korrekt svar och det användaren valt
-      // till en array i parent
-
       this.$emit("update:progressData", this.selectedAnswer);
 
       this.toggleHasAnswered();
@@ -102,6 +102,12 @@ export default {
       this.toggleHasAnswered();
       this.$emit("update:nextQuestion");
     },
+
+    /**
+     * Simple highlighting for the selected answer.
+     * When the user has submitted an answer, all buttons become
+     * disabled.
+     */
     higlightSelectedAnswer: function(selectedAnswer) {
       let setRedButton = false;
       let setBlueButton = false;

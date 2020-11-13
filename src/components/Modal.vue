@@ -45,6 +45,13 @@ export default {
     closeModal: function() {
       this.$emit("update:toggleModal");
     },
+    /**
+     * If there are existing users in the localstorage,
+     * we append the newly saved users to that array.
+     * Simultaneously if there are no users, we simply create
+     * a new array.
+     * At the end we show a simple success message modal/alert and redirect to home after 1.5s.
+     */
     saveName: function() {
       if (this.name.length <= 0) {
         alert("Please enter a name");

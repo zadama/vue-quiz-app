@@ -29,6 +29,8 @@ export default {
     this.getUserInfo();
   },
   methods: {
+    // Users, with their high scores, are saved in localstorage.
+    // We sort the list according to points: highest to low.
     getUserInfo: function() {
       let sortList = JSON.parse(localStorage.getItem("users"));
 

@@ -52,8 +52,10 @@ export default {
       }
     };
   },
-  //Resetting the values. Necessary when we change route back to Quiz again(programmatically or through router-link)
-  // Without refreshing the page manually.s
+  /**
+   * Resetting the values. Necessary when we change route back to Quiz again(programmatically or through router-link)
+   * Without refreshing the page manually.
+   **/
   beforeMount: function() {
     this.loading = true;
     this.questionIndex = 0;
@@ -63,6 +65,7 @@ export default {
       userQuizResult: []
     };
   },
+  // Checks if the quiz is over: when the index becomes =>9
   computed: {
     isQuizOver: function() {
       return this.questionIndex > this.quizArr.length - 1;
@@ -71,16 +74,6 @@ export default {
   mounted() {
     this.getQuestions(this.$route.params.categoryId);
   },
-
-  /*
-  watch: {
-    questionIndex: function() {
-      if (this.isQuizOver) {
-        
-        localStorage.setItem("progressbar", this.progressData.counter);
-      }
-    }
-  },*/
 
   methods: {
     async getQuestions(categoryId) {
@@ -111,12 +104,11 @@ export default {
     nextQuestion() {
       this.questionIndex++;
     },
+    /**
+     * We update the points counter and add quiz to an array
+     * that will be used on the "ResultPage" to display the results
+     */
     updateUserQuizResult(userAnswer) {
-      console.log(
-        userAnswer,
-        this.quizArr[this.questionIndex].correct_answer,
-        decodeHTML(this.quizArr[this.questionIndex].correct_answer)
-      );
       let isAnswerCorrect =
         userAnswer ===
         decodeHTML(this.quizArr[this.questionIndex].correct_answer);
@@ -132,8 +124,6 @@ export default {
         ),
         user_answer: userAnswer
       });
-
-      console.log(this.progressData);
     }
   }
 };
