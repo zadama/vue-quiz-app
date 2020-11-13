@@ -52,12 +52,10 @@ export default {
 .btn-start-game:hover {
   background-color: #39ff14;
 }
-
 .btn-start-game:active {
   background-color: #23e000;
   transform: translateY(4px);
 }
-
 .btn-high-score {
   margin-bottom: 1em;
   width: 100%;
@@ -71,13 +69,11 @@ export default {
   cursor: pointer;
   box-shadow: 2px #1fc700;
 }
-
 a {
   flex-grow: 1;
   flex-basis: 100%;
   display: flex;
 }
-
 div .container {
   background-color: #15242d;
   border-style: solid;
@@ -89,7 +85,6 @@ h1 {
   color: #000000;
   font-family: Fantasy;
 }
-
 #ultimate {
   color: #dededa;
   text-shadow: 3px 3px #0b332e, 4px 4px #39ff14;
@@ -112,7 +107,7 @@ h1 {
   .game-starter-container > * {
     display: flex;
     flex-grow: 1;
-    flex-basis: auto;
+    flex-basis: 100%;
   }
 }
 
@@ -124,11 +119,12 @@ h1 {
   .game-starter-container {
     height: 100%;
   }
-  .game-starter-container > * {
-    flex-basis: 100%;
-  }
 }
 
+#trivia-master {
+  color: #dededa;
+  text-shadow: 3px 3px #0b332e, 4px 4px #39ff14;
+}
 .outside-div {
   border-style: solid;
   border-color: #ffffff;
@@ -137,7 +133,6 @@ h1 {
   margin-left: auto;
   margin-right: auto;
 }
-
 .middle-div {
   border-style: solid;
   border-color: #39ff14;
